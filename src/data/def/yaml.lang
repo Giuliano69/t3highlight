@@ -1,0 +1,42 @@
+format = 3
+
+%include = "def/generic.lang"
+
+%define {
+  style-scope = "yaml"
+
+  yaml {
+    # Commenti con il cancelletto #
+    %highlight { use = "hash-comment" }
+
+    # I tre trattini di inizio documento ---
+    %highlight {
+        regex = "^---"
+        style = "whitespace"
+    }
+
+    # Chiavi YAML (parola seguita obbligatoriamente da : )
+    %highlight {
+        regex = "([\w-]+)(:)(?=\s|$)"
+        style = "keyword"
+    }
+
+    # Valori Booleani e Null
+    %highlight {
+        regex = "(?<![\w-])(?:true|false|null|TRUE|FALSE|NULL)(?![\w-])"
+        style = "keyword"
+    }
+
+    # Numeri interi e decimali
+    %highlight {
+        regex = "\b[0-9]+(?:\.[0-9]+)?\b"
+        style = "number"
+    }
+
+    # Stringhe con doppi o singoli apici (riutilizza le definizioni standard)
+    %highlight { use = "dqs-wce" }
+    %highlight { use = "sqs-wce" }
+  }
+}
+
+%highlight { use = "yaml" }
