@@ -146,6 +146,19 @@ format = 1
   file-regex = "\.md$"
   lang-file = "markdown.lang"
 }
+%lang {
+        name = "YAML"
+        name-regex = "^(?i)yaml$"
+        file-regex = "(?i)\.yaml$"
+        lang-file = "yaml.lang"
+}
+%lang {
+        name = "YML"
+        name-regex = "^(?i)yml$"
+        file-regex = "(?i)\.yml$"
+        lang-file = "yaml.lang"
+}
+
 # This definition should be last, because it matches for any file in /etc
 %lang {
 	name = "Configuration file"
